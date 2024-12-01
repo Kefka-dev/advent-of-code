@@ -23,5 +23,19 @@ def partOne(left, right):
   return sum
 
 
+def partTwo(left, right):
+  #just the left needs to be sorted
+  left = np.sort(left)
+
+  similarity = 0
+  sum = 0
+  for i in range(0, len(left)):
+    wanted_number = left[i]
+    count = np.count_nonzero(right == wanted_number)
+    similarity = left[i] * count
+    sum += similarity
+  return sum
+
 print("sum is: ", partOne(left, right))
+print("similarity is: ", partTwo(left, right))
 
